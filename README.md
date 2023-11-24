@@ -24,7 +24,7 @@ git clone git@github.com:DecodePlaymaker/masterTrivia.git
 ## Quiz Trivia Usage
 
 * After reading the description and clicking start quiz, a timer will appear at the top along with the question and multiple choice answer
-![img](./assets/images/start.jpg) 
+![img](./assets/images/start.png) 
 
 
 * After clicking one of the multiple choice answer, a message will appear at the bottom with correct or incorrect. If correct a button with the words Next Question to continue.
