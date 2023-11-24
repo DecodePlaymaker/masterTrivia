@@ -23,19 +23,22 @@ git clone git@github.com:DecodePlaymaker/masterTrivia.git
 
 ## Quiz Trivia Usage
 
-* You will be prompted to enter the desired length of the password with characters when clicking generate password.
-![img](./images/input.jpg) 
+* After reading the description and clicking start quiz, a timer will appear at the top along with the question and multiple choice answer
+![img](./assets/images/start.jpg) 
 
 
-* A box will pop up confirming the requirement of special and numerics characters for the password.
-![img](./images/agree.png)
+* After clicking one of the multiple choice answer, a message will appear at the bottom with correct or incorrect. If correct a button with the words Next Question to continue.
+![img](./assets/images/answer.png)
 
 
-* A new password will be generated after clicking OK.
-![img](./images/password.png)
+* Once you answer all the question enter full name and click submit.
+![img](./assets/images/scorer.png)
+
+* The submit button will take you too the highscores link.
+![img](./assets/images/highscore.png)
 
 ## Deployed Application
-* Live URL: https://decodeplaymaker.github.io/shazam/
+* Live URL: https://decodeplaymaker.github.io/masterTrivia/
 
 ## Resource
 use webpages like mdn web docs to help me better under stand javascript.
