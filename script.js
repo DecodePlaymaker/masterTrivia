@@ -5,6 +5,7 @@ var questionTitle = document.querySelector("#qTitle");
 var timer = document.querySelector("#timer");
 var start = document.querySelector("#start");
 
+// Created a Variable called question to hold my triva questions
 var questions = [
     {
         title: " What makes up a form structure?",
@@ -38,8 +39,8 @@ var questions = [
     },
 ];
 
+// Function to start the game for the quiz
 var questionIndex = 0;
-
 var createUl = document.createElement("ul");
 createUl.setAttribute("id", "optionsUl")
 
@@ -61,7 +62,7 @@ start.addEventListener("click", function() {
     newQuestion(questionIndex)
 });
 
-// generates a new question
+// generates the next question after answering correctly 
 function newQuestion(questionIndex) {
     quizContent.innerHTML = "";
     createUl.innerHTML = "";
@@ -84,13 +85,13 @@ function newQuestion(questionIndex) {
 
 var i = 0;
 var newDiv = document.createElement("div");
-var feedback = document.createElement("h3");
+var comment = document.createElement("h3");
 newDiv.setAttribute("id", "newDiv");
-// checks to see if selected answer is correct & inserts feedback (correct/incorrect)
+// inserts feedback (correct or incorrect) and verifies that the answer is accurate
 function checkAns(event) {
         var choice = event.target;
         quizContent.appendChild(newDiv);
-        newDiv.appendChild(feedback);
+        newDiv.appendChild(comment);
         var next = document.createElement("button");
         next.setAttribute("id", "nextButton");
         next.textContent = "Next Question";
@@ -98,19 +99,19 @@ function checkAns(event) {
 // condition that selected answer is correct
     if (choice.textContent == questions[questionIndex].answer) {
         score++;
-        feedback.textContent = "Correct! 😊";
-        newDiv.appendChild(feedback);
+        comment.textContent = "Correct!";
+        newDiv.appendChild(comment);
         
         newDiv.appendChild(next);
         next.addEventListener("click", (movingOn));
 //condition that the selected answer is incorrect
     } else {
         countdown = countdown - penalty;
-        feedback.textContent = "Incorrect! 🙁";
-        newDiv.appendChild(feedback);
+        comment.textContent = "Incorrect!";
+        newDiv.appendChild(comment);
     }
 }
-// Decides whether to initiate final pages or to cycle through next question
+// Chooses wheter to start the last page or go on the next question
 function movingOn(event) {
     newDiv.innerHTML = "";
     questionIndex++;
@@ -122,7 +123,6 @@ function movingOn(event) {
     }
 }
 
-
 function theEnd() {
     quizContent.innerHTML = "";
     timer.innerHTML = "";
@@ -133,7 +133,7 @@ function theEnd() {
     quizContent.appendChild(newH1);
 
 
-// Calculation and display of final score
+// Compiling and presenting the final score
     if (countdown >= 0) {
         score = countdown;
         clearInterval(timeInterval);
@@ -150,10 +150,10 @@ function theEnd() {
         quizContent.appendChild(newP);
     }
 
-// Initials submission box and button
+// Initials on the button and submission box
     var initialsPrompt = document.createElement("label");
     initialsPrompt.setAttribute("for", "inputBox");
-    initialsPrompt.textContent = "Enter full name: ";
+    initialsPrompt.textContent = "Enter Full Name: ";
     quizContent.appendChild(initialsPrompt);
 
     var inputBox = document.createElement("input");
@@ -168,13 +168,13 @@ function theEnd() {
     submit.textContent = "Submit";
     quizContent.appendChild(submit);
 
-// Event listener for submission button and storage initials and score
+// Vent listener for score storage, initals and submission button
     submit.addEventListener("click", function() {
         var initials = inputBox.value;
 
         if (initials === "") {
-            console.log("No initials entered")
-            window.alert("Please enter your initials");
+            console.log("No Full Name entered")
+            window.alert("Please enter Full Name");
 
         } else {
             var finalScore = {
@@ -182,14 +182,14 @@ function theEnd() {
                 score: score
             }
     // Storage of past scores
-            var storeScores = localStorage.getItem("storeScores");
-            if (storeScores === null) {
-                storeScores = [];
+            var store = localStorage.getItem("storeScores");
+            if (store === null) {
+                store = [];
             } else {
-                storeScores = JSON.parse(storeScores);
+                store = JSON.parse(store);
             }
-            storeScores.push(finalScore);
-            var newScore = JSON.stringify(storeScores);
+            store.push(finalScore);
+            var newScore = JSON.stringify(store);
             localStorage.setItem("storeScores", newScore);
             window.location.replace("highscores.html");
         }
