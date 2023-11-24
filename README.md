@@ -32,7 +32,7 @@ git clone git@github.com:DecodePlaymaker/masterTrivia.git
 
 
 * Once you answer all the question enter full name and click submit.
-![img](./assets/images/scorer.png)
+![img](./assets/images/score.png)
 
 * The submit button will take you too the highscores link.
 ![img](./assets/images/highscore.png)
